@@ -1,0 +1,36 @@
+---
+title: Form Select
+description: Learn how to create a Button
+sidebar:
+  order: 1
+---
+import { FormSelect } from "basecamp/components";
+
+
+## Import
+
+```js
+import { FormSelect } from "basecamp/components";
+```
+
+## Usage
+
+```mdx title="src/pages/index.astro"
+import { FormSelect } from "basecamp/components";
+
+      <FormSelect
+        id="subject"
+        label="Subject"
+        required={true}
+        options={[{label: "General Enquiry"}]}
+      />
+```
+
+The above code generates the following on the page:
+
+      <FormSelect
+        id="subject"
+        label="Subject"
+        required={true}
+        options={[{label: "General Enquiry"}]}
+      />

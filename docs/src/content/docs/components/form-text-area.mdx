@@ -1,0 +1,36 @@
+---
+title: Form Text Area
+description: Learn how to create a Button
+sidebar:
+  order: 1
+---
+import { FormTextArea } from "basecamp/components";
+
+
+## Import
+
+```js
+import { FormTextArea } from "basecamp/components";
+```
+
+## Usage
+
+```mdx title="src/pages/index.astro"
+import { FormTextArea } from "basecamp/components";
+
+      <FormTextArea
+        id="message"
+        label="Message"
+        placeholder="your message..."
+        required={true}
+      />
+```
+
+The above code generates the following on the page:
+
+      <FormTextArea
+        id="message"
+        label="Message"
+        placeholder="your message..."
+        required={true}
+      />

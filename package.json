@@ -1,5 +1,5 @@
 {
-    "name": "basecamp",
+    "name": "basecamp-root",
     "version": "0.0.0",
     "license": "ISC",
     "description": "",
@@ -7,7 +7,7 @@
     "private": true,
     "repository": {
         "type": "git",
-        "url": "https://github.com/1st-Chertsey-Scout-Group/astro-scout-library.git"
+        "url": "https://github.com/1st-Chertsey-Scout-Group/basecamp.git"
     },
     "workspaces": [
         "docs",

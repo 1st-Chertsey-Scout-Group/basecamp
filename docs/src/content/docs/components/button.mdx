@@ -1,0 +1,49 @@
+---
+title: Button
+description: Learn how to create a Button
+sidebar:
+  order: 1
+---
+import { Button } from "basecamp/components";
+import { SendHorizonalIcon, ArrowRight } from "lucide-react";
+
+
+## Import
+
+```js
+import { Button } from "basecamp/components";
+```
+
+## Usage
+
+### Submit
+
+```mdx title="src/pages/index.astro"
+import { Button } from "basecamp/components";
+import { SendHorizonalIcon } from "lucide-react";
+
+<Button Icon={SendHorizonalIcon} type="submit" text="Submit">
+</Button>
+```
+
+The above code generates the following on the page:
+
+<Button Icon={SendHorizonalIcon} type="submit" text="Submit">
+</Button>
+
+### Link
+
+```mdx  title="src/pages/index.astro"
+import { Button } from "basecamp/components";
+import { ArrowRight } from "lucide-react";
+
+<a href="/#contact" class="hidden lg:block">
+  <Button Icon={ArrowRight} type="button" text="Contact" />
+</a>
+```
+
+The above code generates the following on the page:
+
+<a href="/components/button/#link">
+  <Button Icon={ArrowRight} type="button" text="Contact" />
+</a>

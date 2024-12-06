@@ -1,0 +1,28 @@
+---
+import BaseLayout from "./base.layout.astro";
+
+interface PageProps {
+  title: string;
+  seo: {
+    description: string;
+    title: string;
+  };
+  theme: {
+    primary: string;
+    primaryForeground: string;
+  };
+  git: {
+    repo: string;
+    user: string;
+  };
+}
+
+const { title, seo, theme, git }: PageProps =
+  Astro.props.frontmatter || Astro.props;
+---
+
+<BaseLayout title={title} seo={seo} theme={theme} git={git}>
+  <main>
+    <slot />
+  </main>
+</BaseLayout>

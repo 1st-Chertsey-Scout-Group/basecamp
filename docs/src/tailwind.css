@@ -2,7 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-/*
-Add additional Tailwind styles to this file, for example with @layer:
-https://tailwindcss.com/docs/adding-custom-styles#using-css-and-layer
-*/
+
+@layer base {
+    :root {
+        --transparent: transparent;
+        --white: #ffffff;
+
+        --background: #ffffff;
+        --foreground: #000000;
+
+        --alternative: #f9fafb;
+        --alternative-foreground: #111827;
+
+        --primary: #7413dc;
+        --primary-foreground: #ffffff;
+
+        --input: #f9fafb;
+        --input-border: var(--primary);
+        --input-foreground: #111827;
+    }
+
+}

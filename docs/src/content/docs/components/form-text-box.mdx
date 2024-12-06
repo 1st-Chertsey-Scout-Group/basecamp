@@ -1,0 +1,38 @@
+---
+title: Form Text Box
+description: Learn how to create a Button
+sidebar:
+  order: 1
+---
+import { FormTextBox } from "basecamp/components";
+
+
+## Import
+
+```js
+import { FormTextBox } from "basecamp/components";
+```
+
+## Usage
+
+```mdx title="src/pages/index.astro"
+import { FormTextBox } from "basecamp/components";
+
+      <FormTextBox
+        id="email"
+        type="email"
+        label="Email"
+        placeholder="name@example.com"
+        required={true}
+      />
+```
+
+The above code generates the following on the page:
+
+      <FormTextBox
+        id="email"
+        type="email"
+        label="Email"
+        placeholder="name@example.com"
+        required={true}
+      />

@@ -1,9 +1,12 @@
 {
-  "name": "@basecamp/library",
+  "name": "basecamp",
   "version": "0.0.1",
   "type": "module",
   "exports": {
-    ".": "./index.ts"
+    ".": "./index.ts",
+    "./components": "./src/components/index.ts",
+    "./blocks": "./src/blocks/index.ts",
+    "./layouts": "./src/layouts/index.ts"
   },
   "files": [
     "src",
@@ -15,5 +18,10 @@
   },
   "peerDependencies": {
     "astro": "^4.0.0 || ^5.0.0"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "tailwind-merge": "^2.5.5"
   }
 }

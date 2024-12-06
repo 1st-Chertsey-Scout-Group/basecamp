@@ -1,0 +1,38 @@
+---
+title: Block Element
+description: Learn how to create a Button
+sidebar:
+  order: 1
+---
+import { BlockElement } from "basecamp/components";
+
+
+## Import
+
+```js
+import { BlockElement } from "basecamp/components";
+```
+
+## Usage
+
+```mdx title="src/pages/index.astro"
+import { BlockElement } from "basecamp/components";
+
+<BlockElement
+  id="address"
+  heading={{ title: "Find us", subtitle: "We are here", className: "text-primary" }}
+  seperator={{ loading: "lazy" }}
+>
+Your content
+</BlockElement>
+```
+
+The above code generates the following on the page:
+
+<BlockElement
+  id="address"
+  heading={{ title: "Find us", subtitle: "We are here", className: "text-primary" }}
+  seperator={{ loading: "lazy" }}
+>
+Your content
+</BlockElement>

@@ -1,0 +1,28 @@
+---
+import { SendHorizonal } from "lucide-react";
+
+import BlockElement from "../components/block/block-element.astro";
+import Button from "../components/ui/button.astro";
+
+interface Props {
+  button: string;
+  subtitle: string;
+  title: string;
+  href: string;
+}
+
+const { button, subtitle, title, href }: Props = Astro.props;
+---
+
+<BlockElement
+  id="join"
+  heading={{ title, subtitle, className: "text-primary-foreground" }}
+  body={{ className: "mb-0 lg:mb-0" }}
+  className="py-8"
+>
+  <div class="max-w-screen-sm mx-auto">
+    <a href={href} class="w-full">
+      <Button Icon={SendHorizonal} type="button" text={button} />
+    </a>
+  </div>
+</BlockElement>

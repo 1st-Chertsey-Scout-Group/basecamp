@@ -1,0 +1,46 @@
+---
+import "@fontsource/nunito-sans";
+import "../styles/globals.css"
+import { ClientRouter } from "astro:transitions";
+
+interface Props {
+  title: string;
+  seo: {
+    description: string;
+    title: string;
+  },
+  theme: {
+    primary: string;
+    primaryForeground: string;
+  }
+}
+
+const { title, seo, theme } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content={seo.description} />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="canonical" href={import.meta.env.SITE + currentPath} />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title} | {seo.title}</title>
+    <ClientRouter />
+    <style
+      define:vars={{
+        primary: theme.primary,
+        "primary-foreground": theme.primaryForeground,
+      }}
+    ></style>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
+<link rel="icon" type="image/x-icon" href="/images/favicon.ico" />

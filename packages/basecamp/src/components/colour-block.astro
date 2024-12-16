@@ -1,0 +1,19 @@
+---
+interface Props {
+    colour: "alternative" | "primary";
+}
+
+const { colour }: Props = Astro.props;
+
+let classes = "";
+
+if (colour == "alternative") {
+    classes = "bg-alternative text-alternative-foreground";
+} else if (colour == "primary") {
+    classes = "bg-primary text-primary-foreground";
+}
+---
+
+<div class={classes}>
+    <slot />
+</div>

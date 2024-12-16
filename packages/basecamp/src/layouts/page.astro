@@ -1,0 +1,23 @@
+---
+import BaseLayout from "./base.astro";
+
+interface PageProps {
+    title: string;
+    seo: {
+        description: string;
+        title: string;
+    };
+    theme: {
+        primary: string;
+        primaryForeground: string;
+    };
+}
+
+const { title, seo, theme }: PageProps = Astro.props.frontmatter || Astro.props;
+---
+
+<BaseLayout theme={theme} title={title} seo={seo}>
+    <main>
+        <slot />
+    </main>
+</BaseLayout>

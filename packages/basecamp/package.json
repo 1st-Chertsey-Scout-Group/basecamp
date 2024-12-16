@@ -1,0 +1,32 @@
+{
+  "name": "basecamp",
+  "version": "0.0.1",
+  "type": "module",
+  "exports": {
+    ".": "./index.ts",
+    "./layouts": "./src/layouts/index.ts",
+    "./blocks": "./src/blocks/index.ts",
+    "./components": "./src/components/index.ts",
+    "./models": "./src/models/index.ts",
+    "./libs": "./src/libs/index.ts",
+    "./content": "./src/content/index.ts"
+  },
+  "files": [
+    "src",
+    "index.ts"
+  ],
+  "scripts": {},
+  "devDependencies": {
+    "astro": "^5.0.6"
+  },
+  "peerDependencies": {
+    "astro": "^4.0.0 || ^5.0.0"
+  },
+  "dependencies": {
+    "@astrojs/react": "^4.1.1",
+    "@fontsource/nunito-sans": "^5.1.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^0.468.0",
+    "tailwind-merge": "^2.5.5"
+  }
+}

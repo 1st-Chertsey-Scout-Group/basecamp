@@ -1,0 +1,37 @@
+---
+import { Image } from "astro:assets";
+import HeaderLinkItem from "./header-link-item.astro";
+import { type NavigationLink } from "../../models/navigation-link";
+
+interface Props {
+  groupName: string;
+  logo: ImageMetadata;
+  logoAlt: string;
+  links: NavigationLink[];
+}
+
+const { groupName, logo, logoAlt, links }: Props = Astro.props;
+---
+
+<div class="flex flex-col items-center gap-4 pt-8">
+  <Image
+    loading={"eager"}
+    src={logo}
+    alt={logoAlt}
+    quality={100}
+    width={128}
+    height={128}
+    class="aspect-square"
+  />
+  <h1 class="text-5xl text-center font-extrabold tracking-tight">
+    {groupName}
+  </h1>
+  <ul class="flex flex-wrap items-center justify-center gap-4 mx-2">
+    {
+      links &&
+        links.map(({ url, target, text }) => (
+          <HeaderLinkItem url={url} target={target} text={text} />
+        ))
+    }
+  </ul>
+</div>

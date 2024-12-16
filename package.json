@@ -1,0 +1,16 @@
+{
+  "name": "root",
+  "version": "0.0.0",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1st-Chertsey-Scout-Group/basecamp.git"
+  },
+  "workspaces": [
+    "demo",
+    "packages/*"
+  ]
+}

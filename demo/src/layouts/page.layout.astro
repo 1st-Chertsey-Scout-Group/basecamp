@@ -1,0 +1,97 @@
+---
+import { PageLayout } from "basecamp/layouts";
+import { type NavigationLink } from "basecamp/models";
+
+import logo from "../images/group-badge.png";
+
+import {
+    ColourBlock,
+    HeaderNavigation,
+    FooterNavigation,
+} from "basecamp/components";
+
+interface Props {
+    title: string;
+    seo: {
+        description: string;
+        title: string;
+    };
+}
+
+const { title, seo } = Astro.props;
+
+const headerLinks: NavigationLink[] = [
+    {
+        text: "Sections",
+        url: "/#sections",
+        target: "_self",
+    },
+    {
+        text: "Address",
+        url: "/#address",
+        target: "_self",
+    },
+    {
+        text: "Contact",
+        url: "/#contact",
+        target: "_self",
+    },
+];
+
+const footerLinks: NavigationLink[] = [
+    {
+        target: "_blank",
+        text: "Accounts and Annual Returns",
+        url: "https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/1055895/accounts-and-annual-returns",
+    },
+    {
+        target: "_self",
+        text: "Privacy Policy",
+        url: "/privacy-policy",
+    },
+    {
+        target: "_blank",
+        text: "Runnymede District",
+        url: "http://runnymedescouts.org.uk/",
+    },
+    {
+        target: "_blank",
+        text: "Surrey County",
+        url: "http://www.surrey-scouts.org.uk/",
+    },
+    {
+        target: "_blank",
+        text: "The Scout Association",
+        url: "http://www.scouts.org.uk/",
+    },
+];
+---
+
+<PageLayout
+    theme={{ primary: "#ab1c1c", primaryForeground: "#ffffff" }}
+    title={title}
+    seo={seo}
+>
+    <main>
+        <HeaderNavigation
+            groupName="1st Chertsey"
+            logo={logo}
+            logoAlt="Logo for 1st Chertsey"
+            links={headerLinks}
+        />
+
+        <slot />
+
+        <ColourBlock colour="alternative">
+            <FooterNavigation
+                links={footerLinks}
+                logo={logo}
+                logoAlt="1st Chertsey Logo"
+                charityNumber={1055895}
+                groupName="1st Chertsey Scout Group"
+                subtitle="Home of Scouting in Chertsey"
+                copyright="All Rights Reserved."
+            />
+        </ColourBlock>
+    </main>
+</PageLayout>

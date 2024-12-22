@@ -1,6 +1,8 @@
 {
   "name": "basecamp",
+  "description": "A small collection of astro components for my scout themed websites",
   "version": "0.0.1",
+  "homepage": "https://github.com/1st-Chertsey-Scout-Group/basecamp#readme",
   "type": "module",
   "exports": {
     ".": "./index.ts",

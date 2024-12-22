@@ -6,6 +6,8 @@ import logo from "../images/group-badge.png";
 
 import { HeaderNavigation, FooterNavigation, Block } from "basecamp/components";
 
+const currentPath = Astro.url.pathname;
+
 interface Props {
     title: string;
 }
@@ -70,10 +72,11 @@ const footerLinks: NavigationLink[] = [
 >
     <main>
         <HeaderNavigation
-            groupName="1st Chertsey"
+            name="1st Chertsey"
             logo={logo}
             logoAlt="Logo for 1st Chertsey"
             links={headerLinks}
+            currentPath={currentPath}
         />
 
         <slot />
@@ -85,7 +88,7 @@ const footerLinks: NavigationLink[] = [
                     logo={logo}
                     logoAlt="1st Chertsey Logo"
                     charityNumber={1055895}
-                    groupName="1st Chertsey Scout Group"
+                    name="1st Chertsey Scout Group"
                     subtitle="Home of Scouting in Chertsey"
                     copyright="All Rights Reserved."
                 />

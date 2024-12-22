@@ -1,13 +1,22 @@
 ---
 import type { NavigationLink } from "../..//models/navigation-link";
+import { cn } from "../../libs/cn";
 
-interface Props extends NavigationLink {}
+interface Props extends NavigationLink {
+  isMatch: boolean;
+}
 
-const { url, target, text }: Props = Astro.props;
+const { url, target, text, isMatch }: Props = Astro.props;
 ---
 
 <li>
-  <a class="text-center hover:underline" href={url} target={target}>
+  <a
+    class={cn("text-center hover:underline", {
+      "text-primary font-extrabold": isMatch,
+    })}
+    href={url}
+    target={target}
+  >
     {text}
   </a>
 </li>

@@ -4,21 +4,13 @@ import { type NavigationLink } from "basecamp/models";
 
 import logo from "../images/group-badge.png";
 
-import {
-    ColourBlock,
-    HeaderNavigation,
-    FooterNavigation,
-} from "basecamp/components";
+import { HeaderNavigation, FooterNavigation, Block } from "basecamp/components";
 
 interface Props {
     title: string;
-    seo: {
-        description: string;
-        title: string;
-    };
 }
 
-const { title, seo } = Astro.props;
+const { title } = Astro.props;
 
 const headerLinks: NavigationLink[] = [
     {
@@ -70,7 +62,11 @@ const footerLinks: NavigationLink[] = [
 <PageLayout
     theme={{ primary: "#ab1c1c", primaryForeground: "#ffffff" }}
     title={title}
-    seo={seo}
+    seo={{
+        title: "1st Chertsey Scout Group",
+        description:
+            "Join the 1st Chertsey Scout Group - a historic hub of Scouting in Chertsey since 1909. We offer fun, adventure, and personal growth for ages 4 to 18, with sections for Squirrels, Beavers, Cubs, and Scouts. Get involved as a volunteer or sign up your child to learn skills for life in a supportive community. Located at Scout HQ, Staines Lane, Chertsey.",
+    }}
 >
     <main>
         <HeaderNavigation
@@ -82,16 +78,18 @@ const footerLinks: NavigationLink[] = [
 
         <slot />
 
-        <ColourBlock colour="alternative">
-            <FooterNavigation
-                links={footerLinks}
-                logo={logo}
-                logoAlt="1st Chertsey Logo"
-                charityNumber={1055895}
-                groupName="1st Chertsey Scout Group"
-                subtitle="Home of Scouting in Chertsey"
-                copyright="All Rights Reserved."
-            />
-        </ColourBlock>
+        <Block.Wrapper id="footer" variant="alternative">
+            <Block.Body slot="body" size="xl">
+                <FooterNavigation
+                    links={footerLinks}
+                    logo={logo}
+                    logoAlt="1st Chertsey Logo"
+                    charityNumber={1055895}
+                    groupName="1st Chertsey Scout Group"
+                    subtitle="Home of Scouting in Chertsey"
+                    copyright="All Rights Reserved."
+                />
+            </Block.Body>
+        </Block.Wrapper>
     </main>
 </PageLayout>

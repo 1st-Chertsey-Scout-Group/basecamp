@@ -1,0 +1,39 @@
+---
+import { cn } from "../../libs/cn";
+
+type BlockVariant = "default" | "primary" | "alternative";
+
+const variantStyles: Record<BlockVariant, string> = {
+    default: "",
+    primary: "bg-primary text-primary-foreground",
+    alternative: "bg-alternative text-alternative-foreground",
+};
+
+interface Props {
+    id: string;
+    className?: string;
+    variant?: BlockVariant;
+}
+
+const { id, className, variant = "default" }: Props = Astro.props;
+---
+
+<section
+    id={id}
+    class={cn("px-4 py-8 antialiased", className, variantStyles[variant])}
+>
+    {!!Astro.slots.has("seperator") && <slot name="seperator" />}
+
+    <div class="max-w-screen-md mx-auto">
+        {!!Astro.slots.has("header") && <slot name="header" />}
+        {
+            Astro.slots.has("subHeader") ? (
+                <slot name="subHeader" />
+            ) : (
+                <div class="mb-8 lg:mb-16" />
+            )
+        }
+    </div>
+
+    {!!Astro.slots.has("body") && <slot name="body" />}
+</section>

@@ -14,6 +14,7 @@ interface PageProps {
 }
 
 const { title, seo, theme }: PageProps = Astro.props.frontmatter || Astro.props;
+
 ---
 
 <BaseLayout theme={theme} title={title} seo={seo}>

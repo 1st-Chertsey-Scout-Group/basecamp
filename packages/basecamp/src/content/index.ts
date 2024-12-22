@@ -1,1 +1,0 @@
-export { sections, type Section } from "../models/sections"

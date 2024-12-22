@@ -10,13 +10,11 @@ interface Props {
 const { loading } = Astro.props;
 ---
 
-<div class="pt-6 pb-4">
-    <Image
-        loading={loading}
-        src={fleur}
-        alt={"fleur-de-lis"}
-        quality={100}
-        width="32"
-        class="mx-auto"
-    />
-</div>
+<Image
+    loading={loading}
+    src={fleur}
+    alt={"fleur-de-lis"}
+    quality={100}
+    width="32"
+    class="mx-auto"
+/>

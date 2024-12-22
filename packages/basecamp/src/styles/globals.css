@@ -17,12 +17,4 @@
         --input-border: var(--primary);
         --input-foreground: #111827;
     }
-
-    html {
-        @apply bg-alternative text-alternative-foreground
-    }
-
-    body {
-        @apply bg-background text-foreground
-    }
 }

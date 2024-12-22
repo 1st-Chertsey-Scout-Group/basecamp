@@ -1,0 +1,46 @@
+---
+import { Block, Form } from "basecamp/components";
+---
+
+<Block.Wrapper id="contact">
+    <Block.Header slot="header"> Get in Touch</Block.Header>
+    <Block.SubHeader slot="subHeader">
+        Thanks for viewing our website. We hope that you've found the
+        information that you were looking for. If you want to us, register
+        interest in joining or to volunteer, please use the form below and we'll
+        be in touch.
+    </Block.SubHeader>
+    <Block.Body slot="body" size="md">
+        <Form.Wrapper name="contact" action="/functions/enquiry" button="Send Message">
+            <Form.TextBox
+                id="email"
+                type="email"
+                label="Email"
+                placeholder="bear.grylls@scouts.org.uk"
+                required={true}
+            />
+
+            <Form.TextBox
+                id="name"
+                type="text"
+                label="Name"
+                placeholder="Bear Grylls"
+                required={true}
+            />
+
+            <Form.Select
+                id="subject"
+                label="Subject"
+                required={true}
+                options={[{ label: "General Enquiry" }]}
+            />
+
+            <Form.TextArea
+                id="message"
+                label="Message"
+                placeholder="Leave a comment..."
+                required={true}
+            />
+        </Form.Wrapper>
+    </Block.Body>
+</Block.Wrapper>

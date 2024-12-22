@@ -1,0 +1,28 @@
+---
+import { SendHorizonalIcon } from "lucide-react";
+import Button from "../ui/button.astro";
+
+interface Props {
+    name: string;
+    action: string;
+    button: string;
+}
+
+const { name, action, button }: Props = Astro.props;
+---
+
+<form name={name} action={action} class="space-y-8">
+    <input class="hidden" name="number" />
+
+    <slot />
+
+    <Button Icon={SendHorizonalIcon} type="submit" text={button} />
+    <div class="text-sm text-center">
+        Read our <a
+            href="/privacy-policy"
+            class="hover:underline underline-offset-2 text-primary"
+        >
+            Privacy Policy</a
+        >.
+    </div>
+</form>

@@ -1,0 +1,73 @@
+---
+import { Image } from "astro:assets";
+
+const currentYear = new Date().getFullYear();
+
+import FooterLinkItem from "./footer-link-item.astro";
+import type { NavigationLink } from "../../models/navigation-link";
+
+interface Props {
+  groupName: string;
+  charityNumber: number;
+
+  logo: ImageMetadata;
+  logoAlt: string;
+
+  copyright: string;
+  subtitle: string;
+  links: NavigationLink[];
+}
+
+const {
+  links,
+  logo,
+  logoAlt,
+  charityNumber,
+  groupName,
+  subtitle,
+  copyright,
+}: Props = Astro.props;
+---
+
+<footer class="p-4 md:p-8 lg:p-10">
+  <div class="text-center">
+    <a href="/" class="flex justify-center items-center text-2xl font-semibold">
+      <Image
+        loading={"lazy"}
+        src={logo}
+        alt={logoAlt}
+        quality={100}
+        width={64}
+        height={64}
+        class="aspect-square mr-3"
+      />
+      {groupName}
+    </a>
+    <p class="my-6">{subtitle}</p>
+    <ul class="flex flex-wrap justify-center items-center mb-6">
+      {
+        links &&
+          links.map(({ target, text, url }) => (
+            <FooterLinkItem target={target} text={text} url={url} />
+          ))
+      }
+    </ul>
+    <span class="text-sm sm:text-center">
+      <span>
+        © {currentYear}
+      </span>
+
+      <a href="/" class="hover:underline underline-offset-2 text-primary">
+        {groupName}
+      </a>
+      <span> | Charity number: </span>
+      <a
+        class="hover:underline underline-offset-2 text-primary"
+        href={`https://register-of-charities.charitycommission.gov.uk/en/charity-search/-/charity-details/${charityNumber}/charity-overview`}
+      >
+        {charityNumber}
+      </a>
+    </span>
+    <div>{copyright}</div>
+  </div>
+</footer>

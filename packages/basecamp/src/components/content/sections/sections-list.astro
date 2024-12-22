@@ -1,0 +1,37 @@
+---
+import SectionItem from "./section-item.astro";
+import type { Section } from "../../../models/sections";
+
+interface Props {
+  sections: Section[];
+}
+
+const { sections }: Props = Astro.props;
+---
+
+<div
+  class="mt-8 lg:mt-16 grid gap-8 lg:gap-16 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+>
+  {
+    sections &&
+      sections.map(
+        ({
+          age,
+          image,
+          meetingDay,
+          meetingEndTime,
+          meetingStartTime,
+          name,
+        }) => (
+          <SectionItem
+            image={image}
+            name={name}
+            age={age}
+            meetingDay={meetingDay}
+            meetingEndTime={meetingEndTime}
+            meetingStartTime={meetingStartTime}
+          />
+        ),
+      )
+  }
+</div>

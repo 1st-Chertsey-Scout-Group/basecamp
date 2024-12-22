@@ -1,0 +1,18 @@
+---
+interface Props {
+  mapUrl: string;
+  mapTitle: string;
+}
+
+const { mapUrl, mapTitle }: Props = Astro.props;
+---
+
+<iframe
+  src={mapUrl}
+  class="w-full h-96 rounded-lg border-0"
+  allowfullscreen="true"
+  loading="lazy"
+  title={mapTitle}
+  referrerpolicy="no-referrer-when-downgrade"
+>
+</iframe>

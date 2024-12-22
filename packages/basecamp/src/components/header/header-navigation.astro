@@ -2,15 +2,33 @@
 import { Image } from "astro:assets";
 import HeaderLinkItem from "./header-link-item.astro";
 import { type NavigationLink } from "../../models/navigation-link";
+import { slugify } from "../../libs/slugify";
 
 interface Props {
-  groupName: string;
+  name: string;
   logo: ImageMetadata;
   logoAlt: string;
   links: NavigationLink[];
+  currentPath: string;
 }
 
-const { groupName, logo, logoAlt, links }: Props = Astro.props;
+const { name, logo, logoAlt, links, currentPath }: Props = Astro.props;
+
+const currentPathSlug = slugify(currentPath);
+
+const isMatch = (link: string) => {
+  let linkSlug = slugify(link);
+
+  if (linkSlug == currentPathSlug) {
+    return true;
+  }
+
+  if (linkSlug != "" && currentPathSlug.startsWith(linkSlug)) {
+    return true;
+  }
+
+  return false;
+};
 ---
 
 <div class="flex flex-col items-center gap-4 pt-8">
@@ -24,13 +42,18 @@ const { groupName, logo, logoAlt, links }: Props = Astro.props;
     class="aspect-square"
   />
   <h1 class="text-5xl text-center font-extrabold tracking-tight">
-    {groupName}
+    {name}
   </h1>
   <ul class="flex flex-wrap items-center justify-center gap-4 mx-2">
     {
       links &&
         links.map(({ url, target, text }) => (
-          <HeaderLinkItem url={url} target={target} text={text} />
+          <HeaderLinkItem
+            url={url}
+            target={target}
+            text={text}
+            isMatch={isMatch(url)}
+          />
         ))
     }
   </ul>

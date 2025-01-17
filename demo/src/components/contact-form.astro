@@ -37,15 +37,16 @@ import { Block, Form } from "basecamp/components";
                 label="Subject"
                 required={true}
                 options={[
-                    { label: "General Enquiry", type: "option" },
+                    { label: "General Enquiry", type: "option", id: "enquiry" },
                     {
                         type: "group",
                         label: "Section",
                         options: [
                             {
+                                id: "beavers",
                                 label: "Beavers",
                                 type: "option",
-                            }
+                            },
                         ],
                     },
                 ]}

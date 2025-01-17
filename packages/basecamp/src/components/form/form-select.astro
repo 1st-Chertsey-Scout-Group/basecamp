@@ -1,12 +1,14 @@
 ---
 import { Asterisk } from "lucide-react";
 import { type Option } from "../../models/option";
+import type { OptionGroup } from "../../models/option-group";
+import FormSelectOption from "./form-select-option.astro";
 
 interface Props {
   id: string;
   label: string;
   required: boolean;
-  options: Option[];
+  options: (Option | OptionGroup)[];
 }
 
 const { id, label, required, options }: Props = Astro.props;
@@ -35,9 +37,7 @@ const { id, label, required, options }: Props = Astro.props;
     {
       options &&
         options.map((option) => (
-          <option value={option.label} label={option.label}>
-            {option.label}
-          </option>
+          <FormSelectOption option={option} />
         ))
     }
   </select>

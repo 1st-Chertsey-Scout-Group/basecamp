@@ -19,10 +19,4 @@ const { option }: Props = Astro.props;
     )
 }
 
-{
-    option.type == "option" && (
-        <option value={option.label} label={option.label}>
-            {option.label}
-        </option>
-    )
-}
+{option.type == "option" && <option value={option.id}>{option.label}</option>}

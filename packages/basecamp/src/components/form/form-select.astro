@@ -9,9 +9,10 @@ interface Props {
   label: string;
   required: boolean;
   options: (Option | OptionGroup)[];
+  error?: string | undefined | null;
 }
 
-const { id, label, required, options }: Props = Astro.props;
+const { id, label, required, options, error }: Props = Astro.props;
 ---
 
 <div>
@@ -41,4 +42,5 @@ const { id, label, required, options }: Props = Astro.props;
         ))
     }
   </select>
+  {error && <p class="mt-2 text-sm text-danger">{error}</p>}
 </div>

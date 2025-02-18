@@ -4,14 +4,15 @@ import Button from "../ui/button.astro";
 
 interface Props {
     name: string;
-    action: string;
+    action?: string | undefined | null;
+    method?: string | undefined | null;
     button: string;
 }
 
-const { name, action, button }: Props = Astro.props;
+const { name, action, method, button }: Props = Astro.props;
 ---
 
-<form name={name} action={action} class="space-y-8">
+<form name={name} action={action} method={method} class="space-y-8">
     <input class="hidden" name="number" />
 
     <slot />

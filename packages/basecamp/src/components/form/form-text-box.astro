@@ -7,9 +7,10 @@ interface Props {
   label: string;
   required: boolean;
   placeholder: string;
+  error?: string | undefined | null;
 }
 
-const { id, type, label, placeholder, required }: Props = Astro.props;
+const { id, type, label, placeholder, required, error }: Props = Astro.props;
 ---
 
 <div>
@@ -32,4 +33,5 @@ const { id, type, label, placeholder, required }: Props = Astro.props;
     placeholder={placeholder}
     required={required}
   />
+  {error && <p class="mt-2 text-sm text-danger">{error}</p>}
 </div>

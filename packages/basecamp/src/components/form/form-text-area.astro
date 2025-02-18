@@ -6,9 +6,10 @@ interface Props {
   label: string;
   placeholder: string;
   required: boolean;
+  error?: string | undefined | null;
 }
 
-const { id, label, placeholder, required }: Props = Astro.props;
+const { id, label, placeholder, required, error }: Props = Astro.props;
 ---
 
 <div>
@@ -30,4 +31,6 @@ const { id, label, placeholder, required }: Props = Astro.props;
     class="block p-2.5 w-full rounded-lg bg-input text-input-foreground border border-input-border focus:ring-1 focus:ring-primary"
     placeholder={placeholder}
     required={required}></textarea>
+
+  {error && <p class="mt-2 text-sm text-danger">{error}</p>}
 </div>
